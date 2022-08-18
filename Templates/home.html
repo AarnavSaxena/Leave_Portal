@@ -1,4 +1,21 @@
 <!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+  border-radius: 20px;
+  width: 330px;
+  padding: 10px;
+  border: 5px solid khaki;
+  margin: 0;
+  background : khaki;
+}
+</style>
+</head>
+<body>
+</body>
+</html>
+<!DOCTYPE html>
 <html lang="en">
 <title>Leave Application Page</title>
 <head>
@@ -14,7 +31,7 @@
 
     body {
       /* The image used */
-      background : url("https://images.unsplash.com/photo-1583906865266-c9c96cb8f7b1?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGJlYWNoJTIwaG9saWRheXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+      background : url("https://media-exp1.licdn.com/dms/image/C511BAQFACRg7zJQIcQ/company-background_10000/0/1578466945113?e=2159024400&v=beta&t=vlh1zfBPUK7d_rF4_W0R11l5woYrqhWtc6WsuWqCOds");
 
       /* Full height */
       height: 100%;
@@ -41,38 +58,34 @@
       display: inline-block;
       text-align: center;
 
+
     }
   </style>
 
 </head>
 <body>
-<h1 align = center style="color: black"; "font-size:40px";>Leave Application </h1>
+<h1 align = center style="color: white"; "font-size:40px";>Login</h1>
 <br><br><br><br><br><br><br><br>
   <div class = "form">
-    <form action="application", method = "POST">
+    <form action="home", method = "POST">
       {% csrf_token %}
-        <label for="fname" style="color:white">Enter the Institute ID No. : </label>
-        <input type="text"  name="id" placeholder ="id" color = lightblue><br>
-
-        <label for="lname" style="color:white">Starting date of Leave :   </label>
-        <input type="date"  name="datefrom" placeholder ="date-from"><br>
-
-        <label for="lname" style="color:white">End date of leave :</label>
-        <input type="date"  name="dateto" placeholder ="date-to"><br>
-
-        <label for="lname" style="color:white">Total no. of days : </label>
-        <input type="text"  name="numofdays" placeholder ="number of days"><br>
-
-        <label for="lname" style="color:white">Reason of leave :</label>
-        <input type="text"  name="reason" placeholder ="reason"><br>
+        <label for="fname" style="color:white">Institute ID:</label><br>
+        <input type="text" id="fname" name="id" placeholder ="id" color = lightblue><br>
         <br>
-
+        <label for="lname" style="color:white">Password:</label><br>
+        <input type="text" id="lname" name="password" placeholder ="password"><br><br>
         <input type="submit" value="Submit">
-
-
       </form>
     </div>
 
 
+     {% for i in data %}
+       <h1>{{i.dept_name}}</h1>
+       {% endfor %}
+
+       {% for i in user %}
+       <a href ={% url 'intro' i.pro_id  %} >see profile of proffesor {{i.name}}</a><br>
+       <br>
+       {% endfor %}
 </body>
 </html>
